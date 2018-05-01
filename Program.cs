@@ -4,72 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_11
+
+namespace OOP
 {
     class Program
     {
         static void Main(string[] args)
         {
-            string[] names = { "Al Dente", "Anna Graham", "Earle Bird", "Ginger Rayle", "Iona Ford" };
-            Console.WriteLine("The name in index 2 is {0}",names [2]);
-            Console.WriteLine("The name in the last index is {0}", names[4]);
+            int car1Speed = 20;
+            int car2Speed = 0;
+            Car car1 = new Car("Ford", "Focus", 2010, car1Speed);
+            Car car2 = new Car("Chevy", "Cruze", 2018, car2Speed);
 
-
-            string[] months=new string[12];
-            months[0] = "Jan";
-            months[1] = "Feb";
-            months[2] = "Mar";
-            months[3] = "April";
-            months[4] = "May";
-            months[5] = "June";
-            months[6] = "July";
-            months[7] = "August";
-            months[8] = "Sept";
-            months[9] = "Oct";
-            months[10] = "Nov";
-            months[11] = "Dec";
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 60; i++)
             {
-                Console.WriteLine("Index {0} is {1}", i, months[i]);
+                if (i % 2 == 0)
+                {
+                    car2Speed = car2.SpeedUp();
+                }
+                if (i % 3 == 0)
+                {
+                    car1Speed = car1.SpeedUp();
+                }
+                if (i % 5 == 0)
+                {
+                    car1Speed = car1.SlowDown();
+                    car2Speed = car2.SlowDown();
+                }
             }
+            car1.Display();
+            car2.Display();
 
-            string[] Season = new string[4];
-
-            Season[0] = "Spring";
-            Season[1] = "Summer";
-            Season[2] = "Fall";
-            Season[3] = "Winter";
-
-
-            for (int i=0; i < 4; i++)
-            {
-                Console.WriteLine("Index {0} is {1}", i, Season[i]);
-            }
-               
-
-
-
-
-
-
-
-
-
-
-
-            int[] integers = new int[1000];
-
-            Random random = new Random();
-            int randomNumber;
-            for (int i = 0; i < 1000; i++)
-            {
-                randomNumber = random.Next(0, 100);  // place this line in the loop
-                integers[i] = randomNumber;
-            }
-            foreach(int element in integers)
-            {
-                Console.WriteLine("Next Element {0}", element);
-            }
         }
     }
 }
